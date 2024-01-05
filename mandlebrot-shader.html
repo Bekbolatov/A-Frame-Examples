@@ -16,6 +16,8 @@
 <body>
 
 <script>
+var SPEED_MULT = 1.0;
+	
 AFRAME.registerShader('mandlebrot', {
   schema: 
   {
@@ -129,7 +131,7 @@ AFRAME.registerComponent("c-mover", {
   tick: function()
   {
       let amplitude = 0.7;
-      let speedMult = 0.1;
+      let speedMult = 0.1 * window.SPEED_MULT;
       this.clock.getDelta();
       let time = this.clock.elapsedTime;
       let x = amplitude * Math.sin(1.32 * time * speedMult); 
@@ -139,6 +141,24 @@ AFRAME.registerComponent("c-mover", {
       this.juliaPlane.object3D.children[0].material.uniforms.c.value.set(x - 0.5, y); // -0.5: mandlebrot image shifted left
   },
 
+});
+
+AFRAME.registerComponent('left-trigger-logging',{
+  init: function () {
+    this.el.addEventListener('triggerdown', this.logTriggerdown);
+  },
+  logTriggerdown: function (evt) {
+	window.SPEED_MULT = window.SPEED_MULT * 0.5;
+  }
+});
+
+	AFRAME.registerComponent('right-trigger-logging',{
+  init: function () {
+    this.el.addEventListener('triggerdown', this.logTriggerdown);
+  },
+  logTriggerdown: function (evt) {
+	window.SPEED_MULT = window.SPEED_MULT * 2.0;
+  }
 });
 
 </script>
@@ -168,7 +188,8 @@ AFRAME.registerComponent("c-mover", {
 
     <a-entity 
         id="left-controller"
-        oculus-touch-controls="hand: left">
+        oculus-touch-controls="hand: left"
+	left-trigger-logging>
     </a-entity>
 
     <a-entity
@@ -176,7 +197,8 @@ AFRAME.registerComponent("c-mover", {
         oculus-touch-controls="hand: right"
         raycaster="objects: .raycaster-target, .environmentGround;"
         raycaster-extras="controllerListenerId: #controller-data; 
-                          beamImageSrc: #gradient; beamLength: 0.5;">
+                          beamImageSrc: #gradient; beamLength: 0.5;"
+	right-trigger-logging>
     </a-entity>
 
   </a-entity>
