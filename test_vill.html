@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A-Frame - custom shaders</title>
+    <meta name="description" content="A-Frame - custom shaders">
+    <script src="js/aframe-master-v1.3.0.min.js"></script>
+<!--    <script src="js/aframe-environment-component.js"></script>-->
+
+    <script src="js/controller-listener.js"></script>
+    <script src="js/player-move.js"></script>
+    <script src="js/raycaster-extras.js"></script>
+
+</head>
+
+<body>
+
+<!--<script src="js/composite/example-fractal.js"></script>-->
+
+<a-scene environment>
+
+    <a-assets>
+<!--        <img id="testsky" src="/images/localonly/village1.png" crossorigin="anonymous"/>-->
+<!--        <img id="testsky" src="/images/localonly/fantasy1.png" crossorigin="anonymous"/>-->
+<!--        <img id="testsky" src="/images/localonly/fantasy2.png" crossorigin="anonymous"/>-->
+<!--        <img id="testsky" src="/images/localonly/cell1.png" crossorigin="anonymous"/>-->
+        <img id="testsky" src="/images/localonly/laby1.png" crossorigin="anonymous"/>
+        <img id="gradientRainbow" src="images/gradient-rainbow.png" crossorigin="anonymous"/>
+        <img id="gradient" src="images/gradient-fade.png" crossorigin="anonymous"/>
+    </a-assets>
+
+    <a-sky src="#testsky"></a-sky>
+
+<!--    <a-sky color="#00B307"-->
+<!--           material="shader: julia;-->
+<!--            tex: #gradientRainbow;-->
+<!--            transparent: true;-->
+<!--            flatShading: false;-->
+<!--            side: double;"-->
+<!--           >-->
+<!--    </a-sky>-->
+
+<!--    <a-entity-->
+<!--            id="player"-->
+<!--            position="0 0 0"-->
+<!--            player-move="controllerListenerId: #controller-data;-->
+<!--                 navigationMeshClass: environmentGround;">-->
+
+<!--        <a-camera></a-camera>-->
+
+<!--        <a-entity-->
+<!--                id="controller-data"-->
+<!--                controller-listener="leftControllerId:  #left-controller;-->
+<!--                             rightControllerId: #right-controller;">-->
+<!--        </a-entity>-->
+
+<!--        <a-entity-->
+<!--                id="left-controller"-->
+<!--                oculus-touch-controls="hand: left"-->
+<!--                left-trigger-logging>-->
+<!--        </a-entity>-->
+
+<!--        <a-entity-->
+<!--                id="right-controller"-->
+<!--                oculus-touch-controls="hand: right"-->
+<!--                raycaster="objects: .raycaster-target, .environmentGround;"-->
+<!--                raycaster-extras="controllerListenerId: #controller-data;-->
+<!--                          beamImageSrc: #gradient; beamLength: 0.5;"-->
+<!--                right-trigger-logging>-->
+<!--        </a-entity>-->
+
+<!--    </a-entity>-->
+
+<!--    <a-plane-->
+<!--            position="-1.1 1 -2"-->
+<!--            width="2" height="2"-->
+<!--            border="1"-->
+<!--            material="shader: mandlebrot;-->
+<!--            tex: #gradientRainbow;-->
+<!--            transparent: true;-->
+<!--            flatShading: false;-->
+<!--            side: double;">-->
+<!--        <a-sphere id="cSphere" radius="0.02" c-mover></a-sphere>-->
+<!--    </a-plane>-->
+
+<!--    <a-plane-->
+<!--            id="julia-plane"-->
+<!--            position="1.1 1 -2"-->
+<!--            width="2" height="2"-->
+<!--            border="1"-->
+<!--            material="shader: julia;-->
+<!--            tex: #gradientRainbow;-->
+<!--            transparent: true;-->
+<!--            flatShading: false;-->
+<!--            side: double;">-->
+<!--    </a-plane>-->
+
+
+    <!-- Ground. -->
+<!--    <a-scene>-->
+<!--        <a-assets>-->
+<!--            <img id="ground" src="images/stars.jpg" crossorigin="anonymous">-->
+<!--        </a-assets>-->
+
+<!--        &lt;!&ndash; Basic plane. &ndash;&gt;-->
+<!--        <a-plane color="#CCC" height="20" width="20"></a-plane>-->
+
+<!--        &lt;!&ndash; Textured plane parallel to ground. &ndash;&gt;-->
+<!--        <a-plane src="#ground" height="100" width="100" rotation="-90 0 0"></a-plane>-->
+<!--    </a-scene>-->
+
+
+</a-scene>
+
+</body>
+</html>
