@@ -1,2 +1,6 @@
 
 *.bat
+.idea
+.DS_Store
+**/localonly
+
